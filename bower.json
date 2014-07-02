@@ -7,5 +7,11 @@
   ],
   "description": "A project containing a MEAN Stack Walking Skeleton.",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "toastr": "~2.0.3",
+    "angular": "~1.2.19",
+    "angular-resource": "~1.2.19"
+  }
 }
