@@ -1,4 +1,4 @@
 mean-practice
 =============
 
-Repository responsible for storing some MEAN practices. Teste
+Repository responsible for storing some MEAN practices.
