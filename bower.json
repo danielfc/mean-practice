@@ -1,0 +1,11 @@
+{
+  "name": "mean-practice",
+  "version": "0.0.0",
+  "homepage": "https://github.com/danielfc/mean-practice",
+  "authors": [
+    "Daniel Campos <daniel.felicissimo@gmail.com>"
+  ],
+  "description": "A project containing a MEAN Stack Walking Skeleton.",
+  "license": "MIT",
+  "private": true
+}
