@@ -1,0 +1,30 @@
+{
+  "name": "mean-practice",
+  "version": "0.0.0",
+  "description": "A project to practice the MEAN Stack development.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/danielfc/mean-practice.git"
+  },
+  "keywords": [
+    "mean",
+    "practice",
+    "javascript",
+    "angularjs",
+    "node",
+    "express"
+  ],
+  "author": "danielfc",
+  "license": "BSD",
+  "bugs": {
+    "url": "https://github.com/danielfc/mean-practice/issues"
+  },
+  "dependencies": {
+    "express": "~4.4.5",
+    "jade": "~1.3.1"
+  }
+}
