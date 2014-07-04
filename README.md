@@ -1,9 +1,9 @@
 mean-practice
 =============
 
-Repository that constains a Walking Skeleton for MEAN applications.
+Repository that contains a Walking Skeleton for MEAN applications.
 
-To get the application running, fallow the two steps below:
+To get the application running, follow the two steps below:
 
 1. Installing dependencies
 2. Installing MongoDB
@@ -40,9 +40,9 @@ The project uses the following libraries and versions:
 To install them just type <code>npm install</code> and <code>bower install</code> in the console, respectively.
 
 ### Installing MongoDB
-In order to have the application working, you have to install MongoDB in your environment and let it up and running. The link below contains all the information that is needed to install and manage MongoDB properly:
+In order to have the application working, you have to install MongoDB in your environment and let it up and running. The link below contains all the information that are needed to install and manage the MongoDB properly:
 
-[This link](http://docs.mongodb.org/manual/tutorial/)
+[MongoDB Tutorial](http://docs.mongodb.org/manual/tutorial/)
 
 
 
