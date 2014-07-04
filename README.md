@@ -37,7 +37,7 @@ The project uses the following libraries and versions:
   }
 </pre>
 
-To install them just type <code>npm install</code> and <code>bower install</code>, respectively in the console.
+To install them just type <code>npm install</code> and <code>bower install</code> in the console, respectively.
 
 ### Installing MongoDB
 In order to have the application working, you have to install MongoDB in your environment and let it up and running. The link below contains all the information that is needed to install and manage MongoDB properly:
