@@ -1,7 +1,8 @@
 var express = require('express'),
 	stylus = require('stylus'),
 	logger = require('morgan'),
-	bodyParser = require('body-parser');
+	bodyParser = require('body-parser'),
+	mongoose = require('mongoose');
 
 //Manage the Node environment variable 
 var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
@@ -31,6 +32,15 @@ app.use(stylus.middleware({
 }));
 
 app.use(express.static(__dirname + '/public'));
+
+//MongoDB Connection
+mongoose.connect('mongodb://localhost/testdb');
+var db = mongoose.connection;
+
+db.on('error', console.error.bind(console, 'connection error ...'));
+db.once('open', function callback() {
+	console.log('testdb opened');
+});
 
 //Routes
 app.get('/partials/:partialPath', function (req, res) {
