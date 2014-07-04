@@ -5,8 +5,8 @@ Repository that constains a Walking Skeleton for MEAN applications.
 
 To get the application running, fallow the two steps below:
 
-1. Installing dependencies
-2. Installing MongoDB
+* Installing dependencies
+* Installing MongoDB
 
 ### Installing dependencies
 
