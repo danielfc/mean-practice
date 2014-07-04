@@ -1,57 +1,75 @@
-var express = require('express'),
-	stylus = require('stylus'),
-	logger = require('morgan'),
-	bodyParser = require('body-parser'),
-	mongoose = require('mongoose');
+(function () {
 
-//Manage the Node environment variable 
-var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+	'use strict'
 
-var app = express();
+	var express = require('express'),
+		stylus = require('stylus'),
+		logger = require('morgan'),
+		bodyParser = require('body-parser'),
+		mongoose = require('mongoose');
 
-//Some Express configurations
-app.set('views', __dirname + '/server/views');
-app.set('view engine', 'jade');
+	//Manage the Node environment variable 
+	var env = process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
-//In replace to express.logger('dev')
-app.use(logger('dev'));
-//In replace to express.bodyParser()
-app.use(bodyParser.urlencoded({
-	extended: true
-}));
+	var app = express();
 
-//Create the compile function to pass to Stylus pré-processor
-function compile(str, path) {
-	return stylus(str).set('filename', path);
-}
+	//Some Express configurations
+	app.set('views', __dirname + '/server/views');
+	app.set('view engine', 'jade');
 
-//Some Stylus configurations
-app.use(stylus.middleware({
-	src: __dirname + '/public',
-	compile: compile
-}));
+	//In replace to express.logger('dev')
+	app.use(logger('dev'));
+	//In replace to express.bodyParser()
+	app.use(bodyParser.urlencoded({
+		extended: true
+	}));
 
-app.use(express.static(__dirname + '/public'));
+	//Create the compile function to pass to Stylus pré-processor
+	function compile(str, path) {
+		return stylus(str).set('filename', path);
+	}
 
-//MongoDB Connection
-mongoose.connect('mongodb://localhost/testdb');
-var db = mongoose.connection;
+	//Some Stylus configurations
+	app.use(stylus.middleware({
+		src: __dirname + '/public',
+		compile: compile
+	}));
 
-db.on('error', console.error.bind(console, 'connection error ...'));
-db.once('open', function callback() {
-	console.log('testdb opened');
-});
+	app.use(express.static(__dirname + '/public'));
 
-//Routes
-app.get('/partials/:partialPath', function (req, res) {
-	res.render('partials/' + req.params.partialPath);
-});
+	//MongoDB Connection
+	var DB_NAME = 'testdb';
+	mongoose.connect('mongodb://localhost/' + DB_NAME);
+	var db = mongoose.connection;
 
-app.get('*', function (req, res) {
-	res.render('index');
-});
+	//Creating a Message schema for testing
+	var messageSchema = mongoose.Schema({
+		message: String
+	});
+	var Message = mongoose.model('Message', messageSchema);
+	var mongoMessage;
+	Message.findOne().exec(function (err, messageDoc) {
+		mongoMessage = messageDoc.message;
+	})
 
-var port = 3030;
+	db.on('error', console.error.bind(console, 'connection error ...'));
+	db.once('open', function callback() {
+		console.log('testdb opened');
+	});
 
-app.listen(port);
-console.log('Listening to the port ' + port + ' ...');
+	//Routes
+	app.get('/partials/:partialPath', function (req, res) {
+		res.render('partials/' + req.params.partialPath);
+	});
+
+	app.get('*', function (req, res) {
+		res.render('index', {
+			mongoMessage: mongoMessage
+		});
+	});
+
+	var port = 3030;
+
+	app.listen(port);
+	console.log('Listening to the port ' + port + ' ...');
+})();
