@@ -1,7 +1,7 @@
 mean-practice
 =============
 
-Repository responsible for storing some MEAN practices. The project uses the following libraries and versions:
+Repository that constains a Walking Skeleton for MEAN practices. The project uses the following libraries and versions:
 
 #### Dependencies in package.json file:
 
