@@ -11,7 +11,8 @@ Repository that constains a Walking Skeleton for MEAN practices. The project use
     "jade": "~1.3.1",
     "stylus": "~0.47.1",
     "morgan": "~1.1.1",
-    "body-parser": "~1.4.3"
+    "body-parser": "~1.4.3",
+    "mongoose": "~3.8.12"
  }
 </pre>
 
