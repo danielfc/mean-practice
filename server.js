@@ -50,7 +50,7 @@
 	var mongoMessage;
 	Message.findOne().exec(function (err, messageDoc) {
 		mongoMessage = messageDoc.message;
-	})
+	});
 
 	db.on('error', console.error.bind(console, 'connection error ...'));
 	db.once('open', function callback() {
