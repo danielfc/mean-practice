@@ -1,4 +1,4 @@
-mean-practice
+mean-practice-01
 =============
 
 Repository that contains a Walking Skeleton for MEAN applications.
